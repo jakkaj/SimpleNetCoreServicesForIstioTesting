@@ -5,10 +5,10 @@ EXPOSE 80
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
 COPY IstioTesting.sln ./
-COPY ../WebFrontEnd/WebFrontEnd.csproj ../WebFrontEnd/
+COPY WebFrontEnd/WebFrontEnd.csproj WebFrontEnd/
 RUN dotnet restore -nowarn:msb3202,nu1503
 COPY . .
-WORKDIR /src/../WebFrontEnd
+WORKDIR /src/WebFrontEnd
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish

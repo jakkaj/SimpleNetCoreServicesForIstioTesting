@@ -5,7 +5,7 @@ services:
     image: webfrontend
     build:
       context: .
-      dockerfile: ../WebFrontEnd/Dockerfile
+      dockerfile: WebFrontEnd/Dockerfile
     depends_on:
       - "services"
   services:
